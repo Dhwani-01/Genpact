@@ -1,0 +1,133 @@
+/* General Styles for the Form */
+.restaurant-form {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .restaurant-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .restaurant-form input,
+  .restaurant-form textarea,
+  .restaurant-form button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .restaurant-form input:focus,
+  .restaurant-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .restaurant-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 12px;
+  }
+  
+  .restaurant-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .restaurant-form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Food Item Styles */
+  .food-item {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  .food-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .food-item input {
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+  }
+  
+  .food-item label {
+    margin-left: 5px;
+  }
+  
+  /* Step Navigation Buttons */
+  .step-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .step-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .step-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  .step-buttons .previous {
+    background-color: #6c757d;
+  }
+  
+  .step-buttons .previous:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .restaurant-form {
+      padding: 15px;
+    }
+  
+    .restaurant-form input,
+    .restaurant-form textarea,
+    .restaurant-form button {
+      font-size: 14px;
+    }
+  
+    .step-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .step-buttons button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
