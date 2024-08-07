@@ -46,7 +46,7 @@
 
 /* Add Another Food Item Button */
 .restaurant-form-step2 > button[type="button"] {
-  background-color: #007bff;
+  background-color: rgba(10, 123, 38, 0.769);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -57,7 +57,7 @@
 }
 
 .restaurant-form-step2 > button[type="button"]:hover {
-  background-color: #0056b3;
+  background-color:  rgb(10, 123, 38);
 }
 
 /* Navigation Buttons */
@@ -68,7 +68,7 @@
 }
 
 .navigation-buttons button {
-  background-color: #28a745;
+  background-color: rgb(94, 87, 86);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -78,5 +78,5 @@
 }
 
 .navigation-buttons button:hover {
-  background-color: #218838;
+  background-color:  rgb(94, 87, 86);
 }

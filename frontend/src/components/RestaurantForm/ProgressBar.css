@@ -10,7 +10,7 @@
   
   .progress-bar-fill {
     height: 100%;
-    background-color: #28a745; /* Green color for progress bar fill */
+    background-color:tomato; /* Green color for progress bar fill */
     transition: width 0.3s ease;
   }
   
@@ -39,8 +39,8 @@
   .progress-bar-label.active {
     font-weight: bold;
     color: #fff; /* Text color for active button */
-    background-color: #28a745; /* Green color for active button */
-    border-color: #28a745; /* Border color for active button */
+    background-color: rgb(94, 87, 86); /* Green color for active button */
+    border-color:rgb(94, 87, 86); /* Border color for active button */
   }
   
   .progress-bar-label:hover {

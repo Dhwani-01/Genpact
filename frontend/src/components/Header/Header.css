@@ -1,11 +1,11 @@
-.header {
+.headers {
   height: 34vw;
   margin: 30px auto;
   background: url("/header_img.png") no-repeat;
   background-size: contain;
   position: relative;
 }
-.header-contents {
+.headers-contents {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -17,16 +17,16 @@
   animation: fadeIn 3s;
 }
 
-.header-contents h2 {
+.headers-contents h2 {
   font-weight: 500;
   color: white;
   font-size: max(4.5vw, 22px);
 }
-.header-contents p {
+.headers-contents p {
   color: white;
   font-size: 1vw;
 }
-.header-contents button {
+.headers-contents button {
   border: none;
   color: #747474;
   font-weight: 500;
@@ -36,18 +36,18 @@
   border-radius: 50px;
 }
 @media (max-width: 1050px) {
-  .header-contents {
+  .headers-contents {
     max-width: 45%;
   }
 }
 @media (max-width: 750px) {
-  .header-contents {
+  .headers-contents {
     max-width: 65%;
   }
-  .header-contents p {
+  .headers-contents p {
     display: none;
   }
-  .header-contents button {
+  .headers-contents button {
     padding: 2vw 4vw;
   }
 }

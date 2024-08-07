@@ -33,12 +33,12 @@
   
   .restaurant-form input:focus,
   .restaurant-form textarea:focus {
-    border-color: #007bff;
+    border-color: rgba(94, 87, 86, 0.801);
     outline: none;
   }
   
   .restaurant-form button {
-    background-color: #007bff;
+    background-color: rgba(94, 87, 86, 0.801);
     color: white;
     border: none;
     cursor: pointer;
@@ -47,7 +47,7 @@
   }
   
   .restaurant-form button:hover {
-    background-color: #0056b3;
+    background-color: rgb(94, 87, 86);
   }
   
   .restaurant-form button:disabled {
@@ -87,7 +87,7 @@
   }
   
   .step-buttons button {
-    background-color: #007bff;
+    background-color:  rgb(94, 87, 86);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -97,15 +97,15 @@
   }
   
   .step-buttons button:hover {
-    background-color: #0056b3;
+    background-color:  rgb(94, 87, 86);
   }
   
   .step-buttons .previous {
-    background-color: #6c757d;
+    background-color: rgb(94, 87, 86);
   }
   
   .step-buttons .previous:hover {
-    background-color: #5a6268;
+    background-color:  rgb(94, 87, 86);
   }
   
   /* Responsive Design */
