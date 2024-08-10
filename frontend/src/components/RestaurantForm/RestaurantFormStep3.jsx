@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './RestaurantFormStep3.css'; // Import step-specific CSS
 
 const RestaurantFormStep3 = ({ formData, setFormData, nextStep, previousStep }) => {
+  const [logoPreview, setLogoPreview] = useState(formData.logo ? URL.createObjectURL(formData.logo) : '');
+  const [imagePreview, setImagePreview] = useState(formData.image_res ? URL.createObjectURL(formData.image_res) : '');
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, files } = e.target;
+
+    if (files && files[0]) {
+      const file = files[0];
+      if (name === 'logo') {
+        setLogoPreview(URL.createObjectURL(file));
+        setFormData({ ...formData, logo: file });
+      } else if (name === 'image_res') {
+        setImagePreview(URL.createObjectURL(file));
+        setFormData({ ...formData, image_res: file });
+      }
+    }
   };
 
   return (
     <div className="step-3">
       <h2>Step 3: Additional Details</h2>
       <input
-        name="cuisine"
-        value={formData.cuisine}
-        onChange={handleChange}
-        placeholder="Cuisine Type"
-        required
-      />
-      <input
         name="openingTime"
         type="time"
         value={formData.openingTime}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, openingTime: e.target.value })}
         placeholder="Opening Time"
         required
       />
@@ -28,7 +35,7 @@ const RestaurantFormStep3 = ({ formData, setFormData, nextStep, previousStep }) 
         name="closingTime"
         type="time"
         value={formData.closingTime}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, closingTime: e.target.value })}
         placeholder="Closing Time"
         required
       />
@@ -39,52 +46,58 @@ const RestaurantFormStep3 = ({ formData, setFormData, nextStep, previousStep }) 
         placeholder="Delivery Areas (comma separated)"
         required
       />
-      <input
-        name="deliveryTime"
-        value={formData.deliveryTime}
-        onChange={handleChange}
-        placeholder="Delivery Time"
-        required
-      />
-      <input
-        name="logo"
-        type="url"
-        value={formData.logo}
-        onChange={handleChange}
-        placeholder="Logo URL"
-      />
-      <input
-        name="images"
-        type="url"
-        value={formData.images.join(', ')}
-        onChange={(e) => setFormData({ ...formData, images: e.target.value.split(', ').map(img => img.trim()) })}
-        placeholder="Images URLs (comma separated)"
-      />
+      
+      {/* Logo Upload and Preview */}
+      <div className="image-upload">
+        <label htmlFor="logo">Upload Logo:</label>
+        <input
+          id="logo"
+          name="logo"
+          type="file"
+          accept="image/*"
+          onChange={handleChange}
+        />
+        {logoPreview && <img src={logoPreview} alt="Logo Preview" className="image-preview" />}
+      </div>
+      
+      {/* Image Upload and Preview */}
+      <div className="image-upload">
+        <label htmlFor="image_res">Upload Image:</label>
+        <input
+          id="image_res"
+          name="image_res"
+          type="file"
+          accept="image/*"
+          onChange={handleChange}
+        />
+        {imagePreview && <img src={imagePreview} alt="Image Preview" className="image-preview" />}
+      </div>
+
       <input
         name="website"
         type="url"
         value={formData.website}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
         placeholder="Website URL"
       />
       <textarea
         name="paymentMethods"
         value={formData.paymentMethods}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, paymentMethods: e.target.value })}
         placeholder="Payment Methods"
         required
       />
       <textarea
         name="specialInstructions"
         value={formData.specialInstructions}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, specialInstructions: e.target.value })}
         placeholder="Special Instructions"
       />
       <input
         name="averagePrice"
         type="number"
         value={formData.averagePrice}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, averagePrice: e.target.value })}
         placeholder="Average Price"
         required
       />
@@ -93,7 +106,7 @@ const RestaurantFormStep3 = ({ formData, setFormData, nextStep, previousStep }) 
         type="number"
         step="0.1"
         value={formData.rating}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
         placeholder="Rating"
         required
       />
@@ -101,7 +114,7 @@ const RestaurantFormStep3 = ({ formData, setFormData, nextStep, previousStep }) 
         name="capacity"
         type="number"
         value={formData.capacity}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, capacity: e.target.value })}
         placeholder="Capacity"
         required
       />
