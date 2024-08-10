@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {foodSchema} from './foodModel.js'; 
+// import { foodSchema } from './foodModel.js'; 
 
 const restaurantSchema = new mongoose.Schema({
   name: String,
@@ -10,22 +10,21 @@ const restaurantSchema = new mongoose.Schema({
   city: String,
   state: String,
   pincode: String,
-  cuisine: String,
-  menu: [foodSchema],
+  // menu: [foodSchema],
   openingTime: String,
   closingTime: String,
   deliveryAreas: [String],
-  deliveryTime: String,
   logo: String,
-  images: [String],
+  image_res: String, // Updated to image_res
   website: String,
   paymentMethods: String,
   specialInstructions: String,
   averagePrice: Number,
   rating: Number,
   capacity: Number,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
-const restaurantModel = mongoose.models.restaurant ||mongoose.model('restaurant', restaurantSchema);
+const restaurantModel = mongoose.models.restaurant || mongoose.model('restaurant', restaurantSchema);
 
 export default restaurantModel;
