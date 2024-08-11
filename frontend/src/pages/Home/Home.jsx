@@ -11,9 +11,14 @@ const Home = () => {
     <div>
       <Header />
       <ExploreMenu category={category} setCategory={setCategory} />
+<<<<<<< HEAD
       {/* <FoodList category={category} /> */}
+=======
+      <FoodList category={category} />
+>>>>>>> 57b3fbf0d85ad94354b573fc23ba31048fc256ed
       <RestaurantList/>
       <AppDownload />
+      
     </div>
   );
 };

@@ -6,6 +6,15 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import restaurantModel from '../models/restaurantModel.js';
 
+<<<<<<< HEAD
+
+// All routes are prefixed with /api/restaurant
+restaurantRouter.post('/', createRestaurant);          // POST /api/restaurant
+restaurantRouter.get('/', getRestaurants);             // GET /api/restaurant
+restaurantRouter.get('/:id', getRestaurantById);       // GET /api/restaurant/:id
+restaurantRouter.put('/:id', updateRestaurant);        // PUT /api/restaurant/:id
+restaurantRouter.delete('/:id', deleteRestaurant);      // DELETE /api/restaurant/:id
+=======
 // Determine directory name
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -69,6 +78,7 @@ restaurantRouter.get('/uploads_restaurant/:filename', (req, res) => {
     }
   });
 });
+>>>>>>> 3675b21eccebc8e0e25ce12178bd06efa4ad09fd
 
 restaurantRouter.get('/', async (req, res) => {
   try {

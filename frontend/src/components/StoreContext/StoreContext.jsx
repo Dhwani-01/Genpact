@@ -8,6 +8,9 @@ const StoreContextProvider = (props) => {
   const [token,setToken]=useState("");
   const [food_list,setFoodList]=useState([]);
   const [restaurantList,setRestaurantList]=useState([]);
+  const currency = "₹";
+    const deliveryCharge = 50;
+
   const url="http://localhost:4000";
   
   const addToCart = async(itemId) => {
@@ -56,12 +59,18 @@ const StoreContextProvider = (props) => {
   }
   const fetchRestaurantList=async()=>{
     const response= await axios.get(url+"/api/restaurant/");
+<<<<<<< HEAD
     console.log(response.data.restaurants);
     setRestaurantList(response.data.restaurants);
+=======
+    console.log('API response:',response.data);
+    setRestaurantList(response.data);
+>>>>>>> 57b3fbf0d85ad94354b573fc23ba31048fc256ed
   }
   useEffect(()=>{
-    console.log(restaurantList);
-  },[restaurantList]);
+    console.log('Restaurant List:', restaurantList);
+  }, [restaurantList]);
+  
 
   useEffect(()=>{
     console.log(food_list);
@@ -77,9 +86,16 @@ const StoreContextProvider = (props) => {
     }
     loadData()
   },[]);
+<<<<<<< HEAD
   useEffect(()=>{
     fetchRestaurantList();
   },[]);
+=======
+
+ useEffect(()=>{
+  fetchRestaurantList();
+ },[]);
+>>>>>>> 57b3fbf0d85ad94354b573fc23ba31048fc256ed
 
   const contextValue = {
     
@@ -95,6 +111,8 @@ const StoreContextProvider = (props) => {
     token,
     setToken,
     loadCartData,
+    currency,
+    deliveryCharge
     
   };
 
