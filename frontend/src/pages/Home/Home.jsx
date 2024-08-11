@@ -12,7 +12,9 @@ const Home = () => {
       <Header />
       <ExploreMenu category={category} setCategory={setCategory} />
       <FoodList category={category} />
+      <RestaurantList/>
       <AppDownload />
+      
     </div>
   );
 };

@@ -4,6 +4,7 @@ import header_img from './header_img.png'
 import search_icon from './search_icon.png'
 import profile_image from './profile_image.webp'
 import profile_header from './profile_header.jpg'
+import stars from "./stars.png"
 import menu_1 from './menu_1.png'
 import menu_2 from './menu_2.png'
 import menu_3 from './menu_3.png'
@@ -83,7 +84,8 @@ export const assets = {
     bag_icon,
     parcel_icon,
     profile_image,
-    profile_header
+    profile_header,
+    stars
 }
 
 export const menu_list = [

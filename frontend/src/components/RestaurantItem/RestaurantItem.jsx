@@ -1,5 +1,6 @@
 import React from "react";
 import "./RestaurantItem.css";
+import { assets } from "../../assets/assets";
 const RestaurantItem = ({id,name,cuisine,menu,openingTime,closingTime,deliveryTime,images,averagePrice,rating}) => {
   return (
     <div className="restaurant-item">
@@ -13,11 +14,14 @@ const RestaurantItem = ({id,name,cuisine,menu,openingTime,closingTime,deliveryTi
       <div className="restaurant-item-info">
         <div className="restaurant-item-name-rating">
           <p>{name}</p>
-          <img src={assets.rating_starts} alt="" />
+          <div>
+            <p>{rating} <img src={assets.stars} alt="" /></p>
+            
+          </div>
         </div>
       </div>
       <p className="restaurant-item-desc">{cuisine}</p>
-      <p className="restaurant-item-price">${averagePrice}</p>
+      <p className="restaurant-item-price">{averagePrice}</p>
       <p className="restaurant-item-delivery">{deliveryTime}</p>
     </div>
   );

@@ -2,6 +2,7 @@ import express from 'express';
 const restaurantRouter = express.Router();
 import { createRestaurant, getRestaurants, getRestaurantById, updateRestaurant, deleteRestaurant } from '../controllers/restaurantController.js';
 
+
 // All routes are prefixed with /api/restaurant
 restaurantRouter.post('/', createRestaurant);          // POST /api/restaurant
 restaurantRouter.get('/', getRestaurants);             // GET /api/restaurant
