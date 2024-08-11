@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 import RestaurantForm from "./components/RestaurantForm/RestaurantForm";
 import Profile from "./pages/Profile/Profile"
+import Trial from "./components/try/trial";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/restaurant" element={<RestaurantForm/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/trial" element={<Trial/>}/>
         </Routes>
       </div>
       <Footer />

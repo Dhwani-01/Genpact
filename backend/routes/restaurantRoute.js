@@ -4,6 +4,7 @@ import { createRestaurant,getRestaurantByUserId } from '../controllers/restauran
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import restaurantModel from '../models/restaurantModel.js';
 
 // Determine directory name
 const __filename = fileURLToPath(import.meta.url);
@@ -55,6 +56,25 @@ restaurantRouter.post('/', upload.fields([
 // src/routes/restaurantRouter.js
 
 restaurantRouter.get('/view-restaurant', getRestaurantByUserId);
+
+restaurantRouter.get('/getAllRestaurants', async (req, res) => {
+  try {
+      // Fetch restaurants from the database (replace with your actual data source)
+      const restaurants = await restaurantModel.find();
+
+      // Map through restaurants and add filenames for images
+      const restaurantsWithImages = restaurants.map(restaurant => ({
+          ...restaurant.toObject(),
+          logo: restaurant.logo ? path.basename(restaurant.logo) : null,
+          image_res: restaurant.image_res ? path.basename(restaurant.image_res) : null
+      }));
+
+      res.json({ restaurants: restaurantsWithImages });
+  } catch (error) {
+      console.error('Error fetching restaurants:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 restaurantRouter.get('/uploads_restaurant/:filename', (req, res) => {
   const { filename } = req.params;
