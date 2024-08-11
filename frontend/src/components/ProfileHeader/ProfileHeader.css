@@ -64,10 +64,9 @@ body {
   border-left: 1.5px solid #a9a9a9;
   background-color: #fff;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  position: fixed;
+  position:absolute;
   top: 225px; /* Align below header */
   left: 100;
-  position:absolute;
   padding-top: 20px;
 }
 
@@ -126,6 +125,6 @@ body {
       height: auto;
       border-left: none;
       border-bottom: 1.5px solid #a9a9a9;
-      position: static;
+      position: fixed;
   }
 }

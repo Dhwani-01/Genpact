@@ -56,6 +56,6 @@ foodItemRouter.post('/add', upload.single('image'), createFoodItem);
 foodItemRouter.get('/:restaurantId', getFoodItemsByRestaurant);
 
 // Route for serving food item images
-foodItemRouter.get('/image/:filename', getFoodItemImage);
+foodItemRouter.get('/uploads_food/:filename', getFoodItemImage);
 
 export default foodItemRouter;

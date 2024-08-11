@@ -53,7 +53,7 @@
 // };
 
 
-import FoodItem from '../models/foodItemModel.js';
+import FoodItemModel from '../models/foodItemModel.js';
 import path from 'path';
 import fs from 'fs';
 // import multer from 'multer';
@@ -106,7 +106,7 @@ export const createFoodItem = async (req, res) => {
     }
 
     // Create a new food item
-    const foodItem = new FoodItem({
+    const foodItem = new FoodItemModel({
       item,
       description,
       category,
@@ -127,19 +127,34 @@ export const createFoodItem = async (req, res) => {
 };
 
   
-
-// Get food items by restaurant ID
 export const getFoodItemsByRestaurant = async (req, res) => {
   try {
     const { restaurantId } = req.params;
+
+    // Add some logging to debug
+    console.log('Fetching food items for restaurantId:', restaurantId);
+
+    // Query the database
     const foodItems = await FoodItemModel.find({ restaurantId });
 
-    res.status(200).json(foodItems);
+    if (!foodItems || foodItems.length === 0) {
+      return res.status(404).json({ message: 'No food items found' });
+    }
+
+    // Map through food items and add filenames for images
+    const foodItemsWithFilenames = foodItems.map(item => ({
+      ...item.toObject(),
+      filename: item.image ? path.basename(item.image) : null // Extract filename
+    }));
+
+    // Send the response
+    res.status(200).json({ foodItems: foodItemsWithFilenames });
   } catch (error) {
     console.error('Error fetching food items:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
 
 // Serve food item image
 export const getFoodItemImage = (req, res) => {

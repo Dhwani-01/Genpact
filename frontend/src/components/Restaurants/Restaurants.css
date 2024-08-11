@@ -1,0 +1,96 @@
+.restaurants-container {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.restaurants-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.restaurant-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.restaurant-card:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.restaurant-logo, .restaurant-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restaurant-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px; /* Adjust height as needed */
+    object-fit: contain;
+}
+
+.restaurant-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%; /* Adjust height as needed */
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.restaurant-name {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.restaurant-address,
+.restaurant-contact,
+.restaurant-email,
+.restaurant-hours,
+.restaurant-price,
+.restaurant-rating,
+.restaurant-capacity,
+.restaurant-special,
+.restaurant-website,
+.restaurant-payment,
+.restaurant-delivery {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.restaurant-website a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.restaurant-website a:hover {
+    text-decoration: underline;
+}
+
+.error-message,
+.loading-message {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}

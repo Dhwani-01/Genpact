@@ -9,7 +9,9 @@ import Home from "./pages/Home/Home";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 import RestaurantForm from "./components/RestaurantForm/RestaurantForm";
 import Profile from "./pages/Profile/Profile"
-import Trial from "./components/try/trial";
+import Restaurants from "./components/Restaurants/Restaurants";
+import Dashboard from "./components/Dashboard/Dashboard";
+import FoodItemsPage from "./pages/FoodItemPage/FoodItemPage";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -24,7 +26,9 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/restaurant" element={<RestaurantForm/>}/>
           <Route path="/profile" element={<Profile/>}/>
-          <Route path="/trial" element={<Trial/>}/>
+          <Route path="/all-restaurants" element={<Restaurants/>}/>
+          <Route path="/dashboard-restaurant" element={<Dashboard/>}/>
+          <Route path="/restaurant/:restaurantId" element={<FoodItemsPage />} />
         </Routes>
       </div>
       <Footer />
