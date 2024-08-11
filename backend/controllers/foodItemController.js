@@ -56,6 +56,8 @@
 import FoodItem from '../models/foodItemModel.js';
 import path from 'path';
 import fs from 'fs';
+import mongoose from 'mongoose';
+
 // import multer from 'multer';
 
 // // Configure Multer
@@ -126,17 +128,39 @@ export const createFoodItem = async (req, res) => {
   }
 };
 
+export const listFood = async (req, res) => {
+  try {
+    const foods = await FoodItem.find({});
+    res.json({ success: true, data: foods });
+  } catch (error) {
+    console.error("Error listing food:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+
   
 
 // Get food items by restaurant ID
 export const getFoodItemsByRestaurant = async (req, res) => {
   try {
     const { restaurantId } = req.params;
-    const foodItems = await FoodItemModel.find({ restaurantId });
+    if (!mongoose.Types.ObjectId.isValid(restaurantId)) {
+      return res.status(400).json({ error: 'Invalid restaurantId' });
+  }
+
+    if (!restaurantId) {
+      return res.status(400).json({ message: 'Restaurant ID is required' });
+    }
+
+    const foodItems = await FoodItem.find({ restaurantId });
+
+    if (!foodItems.length) {
+      return res.status(404).json({ message: 'No food items found for this restaurant' });
+    }
 
     res.status(200).json(foodItems);
   } catch (error) {
-    console.error('Error fetching food items:', error);
+    console.error('Error fetching food items:', error.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 };

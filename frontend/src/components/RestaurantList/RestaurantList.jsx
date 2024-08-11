@@ -11,7 +11,6 @@ const RestaurantList = () => {
       <h2>Restaurants/Cafes with online food delivery</h2>
       <div className="restaurant-display-list">
         {restaurantList.map((item) => {
-        
             return (
               <RestaurantItem
                 key={item._id}
@@ -24,23 +23,20 @@ const RestaurantList = () => {
                 city={item.city}
                 state={item.state}
                 pincode={item.pincode}
-                cuisine={item.cuisine}
-                menu={item.menu}
                 openingTime={item.openingTime}
                 closingTime={item.closingTime}
                 deliveryAreas={item.deliveryAreas}
-                deliveryTime={item.deliveryTime}
                 logo={item.logo}
-                images={item.images}
+                image_res={item.image_res}
                 website={item.website}
                 paymentMethods={item.paymentMethods}
                 specialInstructions={item.specialInstructions}
                 averagePrice={item.averagePrice}
                 rating={item.rating}
                 capacity={item.capacity}
+                user={item.user}
               />
             );
-          
         })}
       </div>
     </div>

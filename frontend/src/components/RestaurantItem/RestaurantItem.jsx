@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./RestaurantItem.css";
-const RestaurantItem = ({id,name,cuisine,menu,openingTime,closingTime,deliveryTime,images,averagePrice,rating}) => {
+import { NavLink } from "react-router-dom";
+
+import { assets } from "../../assets/assets";
+import { StoreContext } from "../StoreContext/StoreContext";
+const RestaurantItem = ({id,name,openingTime,closingTime,logo,image_res,specialInstructions,averagePrice,rating}) => {
+  const {url}=useContext(StoreContext);
+  const imageUrl = (filename) => `${url}/api/restaurant/uploads_restaurant/${filename}`;
   return (
-    <div className="restaurant-item">
+    <NavLink to={`/foodlist/${id}`} className="restaurant-item">
       <div className="restaurant-item-img-container">
-        <img
-          className="restaurant-item-image"
-          src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg"
-          alt=""
-        />
+        <img className="restaurant-item-image" src={imageUrl(image_res)} alt="Restaurant Image"/>
       </div>
       <div className="restaurant-item-info">
         <div className="restaurant-item-name-rating">
@@ -16,10 +18,10 @@ const RestaurantItem = ({id,name,cuisine,menu,openingTime,closingTime,deliveryTi
           <img src={assets.rating_starts} alt="" />
         </div>
       </div>
-      <p className="restaurant-item-desc">{cuisine}</p>
+      <p className="restaurant-item-desc">{specialInstructions}</p>
       <p className="restaurant-item-price">${averagePrice}</p>
-      <p className="restaurant-item-delivery">{deliveryTime}</p>
-    </div>
+      {/* <p className="restaurant-item-delivery">{deliveryTime}</p> */}
+      </NavLink>
   );
 };
 

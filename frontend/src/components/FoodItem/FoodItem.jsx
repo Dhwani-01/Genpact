@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./FoodItem.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../StoreContext/StoreContext";
-const FoodItem = ({ id, name, price, description, image }) => {
+const FoodItem = ({ id, item, price, description, image }) => {
   const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
 
   return (
@@ -36,7 +36,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
       </div>
       <div className="food-item-info">
         <div className="food-item-name-rating">
-          <p>{name}</p>
+          <p>{item}</p>
           <img src={assets.rating_starts} alt="" />
         </div>
       </div>

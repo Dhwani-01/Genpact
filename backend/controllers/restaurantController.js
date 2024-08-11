@@ -349,3 +349,14 @@ const getRestaurantByUserId = async (req, res) => {
 };
 
 export { getRestaurantByUserId };
+
+const getRestaurants = async (req, res) => {
+  try {
+    const restaurants = await restaurantModel.find();
+    res.status(200).json(restaurants);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+export {getRestaurants};

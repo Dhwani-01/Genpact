@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 const foodItemSchema = new mongoose.Schema({
   item: { type: String, required: true },
   description: { type: String, required: true },
@@ -10,6 +11,10 @@ const foodItemSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
+
+
+
+
 
 const FoodItem = mongoose.model('FoodItem', foodItemSchema);
 
