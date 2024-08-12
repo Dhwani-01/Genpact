@@ -168,3 +168,24 @@ export const getFoodItemImage = (req, res) => {
     res.sendFile(imagePath, { root: '.' });
   });
 };
+
+export const getFoodItem = async (req, res) => {
+  const { foodItemId } = req.params; // Extract foodItemId from request parameters
+  console.log("food Item fetch",foodItemId);
+  try {
+      // Fetch the food item from the database using the foodItemId
+      const foodItem = await FoodItemModel.findById(foodItemId);
+
+      if (!foodItem) {
+          // If food item is not found, send a 404 response
+          return res.status(404).json({ message: 'Food item not found' });
+      }
+
+      // Send the food item data in the response
+      res.status(200).json({ foodItem });
+  } catch (error) {
+      // Handle any errors that occur during the process
+      console.error('Error fetching food item:', error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+};

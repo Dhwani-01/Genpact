@@ -103,6 +103,7 @@ import axios from 'axios';
 import { StoreContext } from '../StoreContext/StoreContext';
 import RestaurantFormStep2 from '../RestaurantForm/RestaurantFormStep2'; // Adjust the path as needed
 import ListFoodItem from '../ListFoodItemRestaurant/ListFoodItemRestaurant.jsx'; // Import the ListFoodItem component
+import RestaurantOrder from '../RestaurantOrder/RestaurantOrder.jsx';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -152,7 +153,7 @@ const Dashboard = () => {
       case 'ListFoodItems':
         return restaurantId ? <ListFoodItem restaurantId={restaurantId} /> : <div>Loading food items...</div>;
       case 'ListOrders':
-        return <div>List Orders Component</div>; // Placeholder for List Orders component
+        return restaurantId ? <RestaurantOrder restaurantId={restaurantId} /> : <div>Loading orders...</div>;
       case 'ViewOtherSection':
         return <div>View Other Section Component</div>; // Placeholder for another section
       default:

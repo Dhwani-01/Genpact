@@ -12,6 +12,7 @@ import Profile from "./pages/Profile/Profile"
 import Restaurants from "./components/Restaurants/Restaurants";
 import Dashboard from "./components/Dashboard/Dashboard";
 import FoodItemsPage from "./pages/FoodItemPage/FoodItemPage";
+import OrderForm from "./pages/OrderForm/OrderForm";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/all-restaurants" element={<Restaurants/>}/>
           <Route path="/dashboard-restaurant" element={<Dashboard/>}/>
           <Route path="/restaurant/:restaurantId" element={<FoodItemsPage />} />
+          <Route path="/restaurant/:restaurantId/order/:foodItemId" element={<OrderForm />} /> 
         </Routes>
       </div>
       <Footer />

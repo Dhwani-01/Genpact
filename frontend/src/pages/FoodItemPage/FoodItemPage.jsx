@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../components/StoreContext/StoreContext';
 import './FoodItemPage.css'; // Import the CSS file for styling
 
@@ -9,6 +9,7 @@ const FoodItemsPage = () => {
     const [error, setError] = useState(null);
     const { restaurantId } = useParams(); // Get restaurantId from URL
     const { url, token } = useContext(StoreContext);
+    const navigate=useNavigate();
 
     useEffect(() => {
         const fetchFoodItems = async () => {
@@ -32,7 +33,8 @@ const FoodItemsPage = () => {
 
     const handleOrder = (foodItem) => {
         // Handle ordering logic here
-        console.log('Order placed for:', foodItem.name);
+        navigate(`/restaurant/${restaurantId}/order/${foodItem._id}`) 
+        console.log('Order placed for:', foodItem.item);
     };
 
     if (error) return <div className="error-message">{error}</div>;

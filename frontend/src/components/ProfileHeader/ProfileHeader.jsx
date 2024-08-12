@@ -476,6 +476,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import RestaurantForm from '../RestaurantForm/RestaurantForm.jsx';
 import ViewRestaurant from '../ViewRestaurant/ViewRestaurant.jsx';
+import OrderUser from '../UserOrder/UserOrder.jsx';
 import './ProfileHeader.css';
 import axios from 'axios';
 import { StoreContext } from '../StoreContext/StoreContext';
@@ -509,6 +510,8 @@ const ProfileHeader = () => {
         return <RestaurantForm />;
       case 'ViewRestaurant':
         return <ViewRestaurant />; // Render ViewRestaurant component
+      case 'Orders':
+        return <OrderUser />;  
       default:
         return <div className="welcome-message"><p>Welcome !!</p></div>;
     }

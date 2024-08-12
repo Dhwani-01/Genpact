@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import restaurantRouter from "./routes/restaurantRoute.js";
 import foodItemRouter from "./routes/foodItemRoute.js"
+import orderRouter from "./routes/orderRoute.js";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
@@ -38,6 +39,7 @@ app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/cart",cartRouter);
 app.use('/api/restaurant', restaurantRouter);
+app.use('/api/order', orderRouter);
 // app.use('/uploads_restaurant', express.static('uploads_restaurant'));
  //app.use('/uploads_restaurant', express.static(path.join(__dirname, 'uploads_restaurant')))
 
