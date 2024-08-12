@@ -7,6 +7,9 @@ const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [token,setToken]=useState("");
   const [food_list,setFoodList]=useState([]);
+  const[restaurants,setRestaurants]=useState([]);
+  const currency = "₹";
+    const deliveryCharge = 50;
   const url="http://localhost:4000";
   const addToCart = async(itemId) => {
     if (!cartItems[itemId]) {
@@ -45,7 +48,7 @@ const StoreContextProvider = (props) => {
     return totalAmount;
   };
   const fetchFoodList=async()=>{
-    const response=await axios.get(url+"/api/food/list");
+    const response=await axios.get(url+"/api/food-items/list");
     setFoodList(response.data.data)
   }
   const loadCartData = async(token)=>{
@@ -63,6 +66,23 @@ const StoreContextProvider = (props) => {
     }
     loadData()
   },[]);
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+        try {
+            const response = await axios.get(`${url}/api/restaurant/getAllRestaurants`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            setRestaurants(response.data.restaurants);
+        } catch (error) {
+            setError('Error fetching restaurants');
+            console.error('Error fetching restaurants:', error);
+        }
+    };
+
+    fetchRestaurants();
+}, [url, token]);
 
   const contextValue = {
     food_list,
@@ -76,6 +96,8 @@ const StoreContextProvider = (props) => {
     token,
     setToken,
     loadCartData,
+    restaurants,
+    deliveryCharge
   };
 
   return (

@@ -27,7 +27,7 @@ const ListFoodItem = ({ restaurantId }) => {
   const imageUrl = (filename) => `${url}/api/food-items/uploads_food/${filename}`;
 
   return (
-    <div className="list-food-item-container">
+    <div className="list-food-item-containerz">
       <h1>Food Items</h1>
       <div className="food-item-list">
         {foodItems.length > 0 ? (

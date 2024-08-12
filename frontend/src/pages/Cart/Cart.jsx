@@ -3,8 +3,12 @@ import "./Cart.css";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../../components/StoreContext/StoreContext";
 const cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount,url } =
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount,url ,restaurants,deliveryCharge,currency} =
     useContext(StoreContext);
+    const getRestaurantName = (restaurantId) => {
+      const restaurant = restaurants.find((res) => res._id === restaurantId);
+      return restaurant ? restaurant.name : "Unknown Restaurant";
+    };
   return (
     <div className="cart">
       {!getTotalCartAmount() ? (
@@ -21,6 +25,7 @@ const cart = () => {
             <div className="cart-items-title">
               <p>Items</p>
               <p>Title</p>
+              <p>Restaurant</p>
               <p>Price</p>
               <p>Quantity</p>
               <p>Total</p>
@@ -33,8 +38,9 @@ const cart = () => {
                 return (
                   <div>
                     <div className="cart-items-title cart-items-item">
-                      <img src={url+"/images/"+item.image} alt="" />
-                      <p>{item.name}</p>
+                      <img src={url+"/api/food-items/uploads_food/"+item.image} alt="" />
+                      <p>{item.item}</p>
+                      <p>{getRestaurantName(item.restaurantId)}</p>
                       <p>${item.price}</p>
                       <p>{cartItems[item._id]}</p>
                       <p>${item.price * cartItems[item._id]}</p>
@@ -62,13 +68,13 @@ const cart = () => {
                 <hr />
                 <div className="cart-total-details">
                   <p>Delivery Fee</p>
-                  {getTotalCartAmount() ? <p>${2}</p> : <p>${0}</p>}
+                  {getTotalCartAmount() ? <p>${deliveryCharge}</p> : <p>${0}</p>}
                 </div>
                 <hr />
                 <div className="cart-total-details">
                   <b>Total</b>
                   {getTotalCartAmount() ? (
-                    <b>${getTotalCartAmount() + 2}</b>
+                    <b>${getTotalCartAmount() + deliveryCharge}</b>
                   ) : (
                     <b>${0}</b>
                   )}
