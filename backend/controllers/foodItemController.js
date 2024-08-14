@@ -126,6 +126,15 @@ export const createFoodItem = async (req, res) => {
   }
 };
 
+export const listFood = async (req, res) => {
+  try {
+    const foods = await FoodItemModel.find({});
+    res.json({ success: true, data: foods });
+  } catch (error) {
+    console.error("Error listing food:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
   
 export const getFoodItemsByRestaurant = async (req, res) => {
   try {
