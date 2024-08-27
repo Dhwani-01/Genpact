@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from "multer";
-import { createFoodItem, getFoodItemsByRestaurant, getFoodItemImage, getFoodItem ,listFood} from '../controllers/foodItemController.js';
+import { createFoodItem, getFoodItemsByRestaurant, getFoodItemImage, getFoodItem ,listFood,deleteFoodItem} from '../controllers/foodItemController.js';
 
 import fs from 'fs';
 import path from 'path';
@@ -58,5 +58,6 @@ foodItemRouter.get('/food/:foodItemId', getFoodItem);
 // Route for serving food item images
 foodItemRouter.get('/uploads_food/:filename', getFoodItemImage);
 
+foodItemRouter.delete('/delete/:id', deleteFoodItem);
 
 export default foodItemRouter;

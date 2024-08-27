@@ -5,7 +5,7 @@ import { StoreContext } from "../StoreContext/StoreContext";
 
 const FoodList = ({ category }) => {
   const { food_list } = useContext(StoreContext);
-  
+  console.log("food",food_list)
 
   return (
     <div className="food-display" id="food-display">
@@ -20,7 +20,7 @@ const FoodList = ({ category }) => {
                 name={item.name}
                 price={item.price}
                 description={item.description}
-                image={item.image}
+                image={item.image} 
               />
             );
           }

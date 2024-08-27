@@ -26,6 +26,19 @@ const ListFoodItem = ({ restaurantId }) => {
 
   const imageUrl = (filename) => `${url}/api/food-items/uploads_food/${filename}`;
 
+  const removeFoodItem = async (itemId) => {
+    try {
+      await axios.delete(`${url}/api/food-items/delete/${itemId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      setFoodItems(foodItems.filter(item => item._id !== itemId));
+    } catch (error) {
+      console.error('Error removing food item:', error);
+    }
+  };
+
   return (
     <div className="list-food-item-containerz">
       <h1>Food Items</h1>
@@ -37,6 +50,7 @@ const ListFoodItem = ({ restaurantId }) => {
               <h2>{item.item}</h2>
               <p>{item.description}</p>
               <p>Price: ${item.price}</p>
+              <button className="remove-button" onClick={() => removeFoodItem(item._id)}>Remove</button>
             </div>
           ))
         ) : (

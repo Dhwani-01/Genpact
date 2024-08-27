@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { createRestaurant,getRestaurantByUserId } from '../controllers/restaurantController.js';
+import { createRestaurant,getRestaurantByUserId,getRestaurantById } from '../controllers/restaurantController.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -56,6 +56,8 @@ restaurantRouter.post('/', upload.fields([
 // src/routes/restaurantRouter.js
 
 restaurantRouter.get('/view-restaurant', getRestaurantByUserId);
+
+restaurantRouter.get('/view-restaurant/:id', getRestaurantById);
 
 restaurantRouter.get('/getAllRestaurants', async (req, res) => {
   try {

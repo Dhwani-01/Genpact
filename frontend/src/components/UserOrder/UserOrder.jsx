@@ -28,7 +28,7 @@ const UserOrder = () => {
 
         // Fetch restaurants and food items
         const restaurantRequests = restaurantIds.map(id =>
-          axios.get(`${url}/api/restaurant/view-restaurant`, {
+          axios.get(`${url}/api/restaurant/view-restaurant/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -92,7 +92,9 @@ const UserOrder = () => {
             orders.map(order => (
               <tr key={order._id}>
                 <td>{order._id}</td>
-                <td>{restaurants[order.restaurantId]?.name || 'Loading...'}</td>
+                <td>{restaurants[order.restaurantId]?.name || order.restaurantName}</td>
+
+                {/* <td>{restaurants[order.restaurantId]?.name || 'Loading...'}</td> */}
                 {/* <td>
                   {Array.isArray(order.foodItems) && order.foodItems.length > 0 ? (
                     order.foodItems.map(item => (

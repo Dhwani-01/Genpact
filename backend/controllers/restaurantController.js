@@ -348,4 +348,21 @@ const getRestaurantByUserId = async (req, res) => {
   }
 };
 
-export { getRestaurantByUserId };
+const getRestaurantById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const restaurant = await restaurantModel.findById(id);
+
+    if (!restaurant) {
+      return res.status(404).json({ message: 'Restaurant not found' });
+    }
+
+    res.json({ restaurant });
+  } catch (error) {
+    console.error('Error fetching restaurant:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+export { getRestaurantByUserId , getRestaurantById};

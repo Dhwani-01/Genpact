@@ -224,6 +224,7 @@ const RestaurantFormStep2 = () => {
       // Wait for all requests to complete
       const responses = await Promise.all(requests);
   
+      alert('Food items submitted successfully!');
       // Handle success (e.g., show a message or redirect)
       responses.forEach(response => console.log('Food item submitted successfully:', response.data));
     } catch (error) {

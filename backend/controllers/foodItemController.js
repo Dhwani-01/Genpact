@@ -129,12 +129,19 @@ export const createFoodItem = async (req, res) => {
 export const listFood = async (req, res) => {
   try {
     const foods = await FoodItemModel.find({});
-    res.json({ success: true, data: foods });
+
+    const updatedFoods = foods.map(food => ({
+      ...food.toObject(), // Convert Mongoose document to plain object
+      image: food.image ? path.basename(food.image) : null // Extract the last part of the image URL
+    }));
+
+    res.json({ success: true, data: updatedFoods });
   } catch (error) {
     console.error("Error listing food:", error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
+
   
 export const getFoodItemsByRestaurant = async (req, res) => {
   try {
@@ -196,5 +203,23 @@ export const getFoodItem = async (req, res) => {
       // Handle any errors that occur during the process
       console.error('Error fetching food item:', error);
       res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+
+export const deleteFoodItem = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const foodItem = await FoodItemModel.findByIdAndDelete(id);
+
+    if (!foodItem) {
+      return res.status(404).json({ message: 'Food item not found' });
+    }
+
+    res.json({ message: 'Food item deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting food item:', error);
+    res.status(500).json({ message: 'Server error' });
   }
 };
