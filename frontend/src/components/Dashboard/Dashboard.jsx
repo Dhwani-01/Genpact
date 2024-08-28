@@ -160,12 +160,18 @@ const Dashboard = () => {
         return (
           <div className="dashboard-content">
             <h1>{restaurant.name}</h1>
+          
+            {restaurant.logo && <img src={imageUrl(restaurant.logo)} alt="Restaurant Logo" />}
+            {restaurant.image_res && <img src={imageUrl(restaurant.image_res)} alt="Restaurant Image" />}
+            
+            
+            
             <p>{restaurant.addressLine1}, {restaurant.addressLine2}, {restaurant.city}, {restaurant.state} - {restaurant.pincode}</p>
             <p>Contact: {restaurant.contact}</p>
             <p>Email: {restaurant.email}</p>
             <p>Opening Time: {restaurant.openingTime}</p>
             <p>Closing Time: {restaurant.closingTime}</p>
-            <p>Average Price: ${restaurant.averagePrice}</p>
+            <p>Average Price: &#x20b9;{restaurant.averagePrice}</p>
             <p>Rating: {restaurant.rating} stars</p>
             <p>Capacity: {restaurant.capacity}</p>
             <p>Special Instructions: {restaurant.specialInstructions}</p>
@@ -174,8 +180,7 @@ const Dashboard = () => {
             <p>Delivery Areas: {restaurant.deliveryAreas.join(', ')}</p>
 
             {/* Display images */}
-            {restaurant.logo && <img src={imageUrl(restaurant.logo)} alt="Restaurant Logo" />}
-            {restaurant.image_res && <img src={imageUrl(restaurant.image_res)} alt="Restaurant Image" />}
+           
           </div>
         );
     }

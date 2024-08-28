@@ -1,6 +1,7 @@
-import orderModel from "../models/orderModel.js";
+import orderModel from "../models/orderItemsModel.js";
 import userModel from "../models/userModel.js"
 import Stripe from "stripe";
+import fs from 'fs'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //config variables
@@ -8,10 +9,31 @@ const currency = "inr";
 const deliveryCharge = 50;
 const frontend_URL = 'http://localhost:5173';
 
+
 // Placing User Order for Frontend using stripe
 const placeOrder = async (req, res) => {
 
     try {
+        if (!req.body.items || req.body.items.length === 0) {
+            throw new Error("Items cannot be empty");
+        }
+
+        // Validate each item
+        req.body.items.forEach(item => {
+            console.log("Processing item:", item);
+            if (!item.item || typeof item.price !== 'number' || item.price <= 0|| !item.quantity || typeof item.quantity !== 'number') {
+                console.error("Item validation failed:", {
+                    name: item.item,
+                    price: item.price,
+                    quantity: item.quantity,
+                    fullItem: item
+                });
+                throw new Error(`Invalid item data: ${JSON.stringify(item)}`);
+            }
+            
+        });
+        
+
         const newOrder = new orderModel({
             userId: req.body.userId,
             items: req.body.items,
@@ -22,26 +44,28 @@ const placeOrder = async (req, res) => {
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
         const line_items = req.body.items.map((item) => ({
+           
             price_data: {
-                currency: currency,
+                currency: "inr",
                 product_data: {
-                    name: item.name
+                    name: item.item
                 },
-                unit_amount: item.price * 100 *80
+                unit_amount: item.price * 100 
             },
             quantity: item.quantity
         }))
 
         line_items.push({
             price_data: {
-                currency: currency,
+                currency: "inr",
                 product_data: {
                     name: "Delivery Charges"
                 },
-                unit_amount: deliveryCharge * 100*80
+                unit_amount: deliveryCharge * 100
             },
             quantity: 1
         })
+        console.log(line_items);
 
         const session = await stripe.checkout.sessions.create({
             success_url: `${frontend_URL}/verify?success=true&orderId=${newOrder._id}`,

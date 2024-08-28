@@ -98,7 +98,7 @@ const ViewRestaurant = () => {
       <p>Email: {restaurant.email}</p>
       <p>Opening Time: {restaurant.openingTime}</p>
       <p>Closing Time: {restaurant.closingTime}</p>
-      <p>Average Price: ${restaurant.averagePrice}</p>
+      <p>Average Price: &#x20b9;{restaurant.averagePrice}</p>
       <p>Rating: {restaurant.rating} stars</p>
       <p>Capacity: {restaurant.capacity}</p>
       <p>Special Instructions: {restaurant.specialInstructions}</p>

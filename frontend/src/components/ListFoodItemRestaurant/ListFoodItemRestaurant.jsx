@@ -36,7 +36,7 @@ const ListFoodItem = ({ restaurantId }) => {
               {item.image && <img src={imageUrl(item.filename)} alt={item.name} className="food-item-image" />}
               <h2>{item.item}</h2>
               <p>{item.description}</p>
-              <p>Price: ${item.price}</p>
+              <p>Price: &#x20b9;{item.price}</p>
             </div>
           ))
         ) : (

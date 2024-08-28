@@ -480,6 +480,7 @@ import OrderUser from '../UserOrder/UserOrder.jsx';
 import './ProfileHeader.css';
 import axios from 'axios';
 import { StoreContext } from '../StoreContext/StoreContext';
+import MyOrders from '../../pages/MyOrders/MyOrders.jsx';
 
 const ProfileHeader = () => {
   const [activeSection, setActiveSection] = useState('Orders');
@@ -510,8 +511,8 @@ const ProfileHeader = () => {
         return <RestaurantForm />;
       case 'ViewRestaurant':
         return <ViewRestaurant />; // Render ViewRestaurant component
-      case 'Orders':
-        return <OrderUser />;  
+      // case 'Orders':
+      //   return <MyOrders/>;  
       default:
         return <div className="welcome-message"><p>Welcome !!</p></div>;
     }
@@ -528,7 +529,7 @@ const ProfileHeader = () => {
       <div className="main-content">
         <aside className="sidebar">
           <div className="sidebar-options">
-            <div 
+            {/* <div 
               className={`sidebar-option ${activeSection === 'Orders' ? 'active' : ''}`}
               onClick={() => setActiveSection('Orders')}
             >
@@ -551,7 +552,7 @@ const ProfileHeader = () => {
               onClick={() => setActiveSection('Addresses')}
             >
               <p>Addresses</p>
-            </div>
+            </div> */}
             {canViewRestaurant && (
               <div 
                 className={`sidebar-option ${activeSection === 'ViewRestaurant' ? 'active' : ''}`}

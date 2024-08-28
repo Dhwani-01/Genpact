@@ -33,8 +33,8 @@ const FoodItemsPage = () => {
     fetchFoodItems();
   }, [restaurantId, url, token]);
 
-  const imageUrl = (filename) =>
-    `${url}/api/food-items/uploads_food/${filename}`;
+  const imageUrl = (filename) =>filename?
+    `${url}/api/food-items/uploads_food/${filename}`: '';
 
   const handleOrder = (foodItem) => {
     // Handle ordering logic here
@@ -56,8 +56,8 @@ const FoodItemsPage = () => {
               {item.image && (
                 <img
                   className="food-item-image"
-                  src={imageUrl(item.filename)}
-                  alt={item.name}
+                  src={imageUrl(item.image)}
+                  alt={item.item}
                 />
               )}
               {!cartItems[item._id] ? (
@@ -90,10 +90,8 @@ const FoodItemsPage = () => {
               </div>
             </div>
             <p className="food-item-description">{item.description}</p>
-            <p className="food-item-price">Price: ${item.price}</p>
-            <button onClick={() => handleOrder(item)} className="order-button">
-              Order
-            </button>
+            <p className="food-item-price">Price: &#x20b9;{item.price}</p>
+            
           </div>
         ))}
       </div>

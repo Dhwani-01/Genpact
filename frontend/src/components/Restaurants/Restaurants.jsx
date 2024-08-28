@@ -128,7 +128,7 @@ import { Link } from 'react-router-dom'; // Import Link for navigation
 const Restaurants = () => {
     const [restaurants, setRestaurants] = useState([]);
     const [error, setError] = useState(null);
-    const { url, token } = useContext(StoreContext);
+    const { url, token,currency } = useContext(StoreContext);
 
     useEffect(() => {
         const fetchRestaurants = async () => {
@@ -165,20 +165,20 @@ const Restaurants = () => {
                                 {restaurant.image_res && <img src={imageUrl(restaurant.image_res)} alt={`${restaurant.name} Image`} className="restaurant-image" />}
                             </div>
                             <div className="card-body">
+                                <div className='card-name'>
                                 <h2 className="restaurant-name">{restaurant.name}</h2>
-                                <p className="restaurant-address">
-                                    {restaurant.addressLine1}, {restaurant.addressLine2}, {restaurant.city}, {restaurant.state} - {restaurant.pincode}
-                                </p>
-                                <p className="restaurant-contact">Contact: {restaurant.contact}</p>
-                                <p className="restaurant-email">Email: {restaurant.email}</p>
+                                <div className="restaurant-rating"><p>{restaurant.rating} &#x2605;</p></div>
+                                </div>
+                                <div className='instruction'>
+                                <p className="restaurant-special">{restaurant.specialInstructions}</p>
+                                <p className="restaurant-price"> &#x20b9;{restaurant.averagePrice} for one</p>
+                                </div>
+                                
+
+            
                                 <p className="restaurant-hours">Opening Time: {restaurant.openingTime} AM | Closing Time: {restaurant.closingTime} PM</p>
-                                <p className="restaurant-price">Average Price: ${restaurant.averagePrice}</p>
-                                <p className="restaurant-rating">Rating: {restaurant.rating} stars</p>
-                                <p className="restaurant-capacity">Capacity: {restaurant.capacity}</p>
-                                <p className="restaurant-special">Special Instructions: {restaurant.specialInstructions}</p>
-                                <p className="restaurant-website">Website: <a href={restaurant.website} target="_blank" rel="noopener noreferrer">{restaurant.website}</a></p>
-                                <p className="restaurant-payment">Payment Methods: {restaurant.paymentMethods}</p>
-                                <p className="restaurant-delivery">Delivery Areas: {restaurant.deliveryAreas.join(', ')}</p>
+                                
+                                
                             </div>
                         </Link>
                     </div>

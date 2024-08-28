@@ -127,7 +127,7 @@ const RestaurantOrder = ({ restaurantId }) => {
                   )}
                 </td> */}
                 <td>{order.foodName}</td>
-                <td>${order.totalAmount?.toFixed(2) || '0.00'}</td>
+                <td>&#x20b9;{order.totalAmount?.toFixed(2) || '0.00'}</td>
                 <td>{order.status || 'Unknown'}</td>
                 <td>{order.dateOfOrdering ? new Date(order.dateOfOrdering).toLocaleDateString() : 'Unknown'}</td>
               </tr>

@@ -8,7 +8,6 @@ const StoreContextProvider = (props) => {
   const [token,setToken]=useState("");
   const [food_list,setFoodList]=useState([]);
   const[restaurants,setRestaurants]=useState([]);
-  const currency = "₹";
     const deliveryCharge = 50;
   const url="http://localhost:4000";
   const addToCart = async(itemId) => {
@@ -97,7 +96,8 @@ const StoreContextProvider = (props) => {
     setToken,
     loadCartData,
     restaurants,
-    deliveryCharge
+    deliveryCharge,
+    
   };
 
   return (

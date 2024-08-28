@@ -41,9 +41,9 @@ const cart = () => {
                       <img src={url+"/api/food-items/uploads_food/"+item.image} alt="" />
                       <p>{item.item}</p>
                       <p>{getRestaurantName(item.restaurantId)}</p>
-                      <p>${item.price}</p>
+                      <p>&#x20b9;{item.price}</p>
                       <p>{cartItems[item._id]}</p>
-                      <p>${item.price * cartItems[item._id]}</p>
+                      <p>&#x20b9;{item.price * cartItems[item._id]}</p>
                       <p
                         onClick={() => removeFromCart(item._id)}
                         className="cross"
@@ -63,20 +63,20 @@ const cart = () => {
               <div>
                 <div className="cart-total-details">
                   <p>Subtotal</p>
-                  <p>${getTotalCartAmount()}</p>
+                  <p>&#x20b9;{getTotalCartAmount()}</p>
                 </div>
                 <hr />
                 <div className="cart-total-details">
                   <p>Delivery Fee</p>
-                  {getTotalCartAmount() ? <p>${deliveryCharge}</p> : <p>${0}</p>}
+                  {getTotalCartAmount() ? <p>&#x20b9;{deliveryCharge}</p> : <p>${0}</p>}
                 </div>
                 <hr />
                 <div className="cart-total-details">
                   <b>Total</b>
                   {getTotalCartAmount() ? (
-                    <b>${getTotalCartAmount() + deliveryCharge}</b>
+                    <b>&#x20b9;{getTotalCartAmount() + deliveryCharge}</b>
                   ) : (
-                    <b>${0}</b>
+                    <b>&#x20b9;{0}</b>
                   )}
                 </div>
               </div>

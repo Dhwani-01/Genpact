@@ -56,6 +56,7 @@
 import FoodItemModel from '../models/foodItemModel.js';
 import path from 'path';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
 // import multer from 'multer';
 
 // // Configure Multer
@@ -95,10 +96,23 @@ import fs from 'fs';
 //     res.status(500).json({ error: 'Internal server error' });
 //   }
 // };
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Set the uploads directory to be one level up from the current directory
+const uploadDir = path.join(__dirname, '..', 'uploads_food');
+
+// Create the uploads directory if it does not exist
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+  console.log('Created uploads_food directory.');
+} else {
+  console.log('uploads_food directory already exists.');
+}
 export const createFoodItem = async (req, res) => {
   try {
     const { item, description, category, price,restaurantId } = req.body;
-    const image = req.file ? req.file.path : ''; // Adjust based on how you handle image uploads
+    const image = req.file ? req.file.path.replace(/\\/g, '/') : ''; // Adjust based on how you handle image uploads
     console.log("restaurant_id",restaurantId);
     // Validate required fields
     if (!item || !description || !category || !price) {
@@ -167,14 +181,14 @@ export const getFoodItemsByRestaurant = async (req, res) => {
 
 // Serve food item image
 export const getFoodItemImage = (req, res) => {
-  const imagePath = path.join('uploads_food', req.params.filename);
+  const imagePath = path.join(uploadDir, req.params.filename);
 
   fs.access(imagePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.error('Image not found:', err);
       return res.status(404).send('File not found');
     }
-    res.sendFile(imagePath, { root: '.' });
+    res.sendFile(imagePath);
   });
 };
 

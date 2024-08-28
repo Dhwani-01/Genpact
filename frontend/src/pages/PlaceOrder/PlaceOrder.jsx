@@ -21,7 +21,7 @@ const PlaceOrder = () => {
         phone: ""
     })
 
-    const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems,currency,deliveryCharge } = useContext(StoreContext);
+    const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems,deliveryCharge } = useContext(StoreContext);
 
     const navigate = useNavigate();
 
@@ -105,11 +105,11 @@ const PlaceOrder = () => {
                 <div className="cart-total">
                     <h2>Cart Totals</h2>
                     <div>
-                        <div className="cart-total-details"><p>Subtotal</p><p>${getTotalCartAmount()}</p></div>
+                        <div className="cart-total-details"><p>Subtotal</p><p> &#x20b9;{getTotalCartAmount()}</p></div>
                         <hr />
-                        <div className="cart-total-details"><p>Delivery Fee</p><p>${getTotalCartAmount() === 0 ? 0 : deliveryCharge}</p></div>
+                        <div className="cart-total-details"><p>Delivery Fee</p><p> &#x20b9;{getTotalCartAmount() === 0 ? 0 : deliveryCharge}</p></div>
                         <hr />
-                        <div className="cart-total-details"><b>Total</b><b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + deliveryCharge}</b></div>
+                        <div className="cart-total-details"><b>Total</b><b> &#x20b9;{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + deliveryCharge}</b></div>
                     </div>
                 </div>
                 <div className="payment">

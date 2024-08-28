@@ -13,6 +13,8 @@ import Restaurants from "./components/Restaurants/Restaurants";
 import Dashboard from "./components/Dashboard/Dashboard";
 import FoodItemsPage from "./pages/FoodItemPage/FoodItemPage";
 import OrderForm from "./pages/OrderForm/OrderForm";
+import Verify from "./pages/Verify/Verify";
+import MyOrders from "./pages/MyOrders/MyOrders";
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -25,6 +27,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
+          <Route path="/verify" element={<Verify/>}/>
+          <Route path="/myorders" element={<MyOrders/>}/>
           <Route path="/restaurant" element={<RestaurantForm/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/all-restaurants" element={<Restaurants/>}/>

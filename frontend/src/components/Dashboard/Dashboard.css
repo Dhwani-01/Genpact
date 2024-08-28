@@ -43,6 +43,7 @@ body {
   .dashboard-content {
     flex: 1;
     padding: 20px;
+    text-align: center;
   }
   
   .dashboard-content h1 {
@@ -54,10 +55,10 @@ body {
   }
   
   .dashboard-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 10px;
+    max-width: 200px;
+    height: 200px;
+    display: inline;
+    margin: 20px;
   }
   
   .dashboard-add-food-button {
