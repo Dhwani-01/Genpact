@@ -1,0 +1,85 @@
+/* Food Item Container */
+.food-item {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+/* Food Item Input Fields */
+.food-item input,
+.food-item textarea,
+.food-item select {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.food-item textarea {
+  height: 80px;
+}
+
+/* Remove Availability Checkbox Styles */
+.available-container {
+  display: none; /* Hide the container for availability checkbox */
+}
+
+/* Remove Item Button */
+.food-item button[type="button"] {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.food-item button[type="button"]:hover {
+  background-color: #c82333;
+}
+
+/* Add Another Food Item Button */
+.restaurant-form-step2 > button[type="button"] {
+  background-color: rgba(10, 123, 38, 0.769);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.restaurant-form-step2 > button[type="button"]:hover {
+  background-color:  rgb(10, 123, 38);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+button{
+  margin: 10px;
+}
+
+.navigation-buttons button {
+  background-color: rgb(94, 87, 86);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.navigation-buttons button:hover {
+  background-color:  rgb(94, 87, 86);
+}

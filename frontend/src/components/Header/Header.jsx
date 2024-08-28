@@ -2,8 +2,8 @@ import React from "react";
 import "./Header.css";
 const Header = () => {
   return (
-    <div className="header">
-      <div className="header-contents">
+    <div className="headers">
+      <div className="headers-contents">
         <h2>Order your favourite food here</h2>
         <p>
           Choose from a diverse menu featuring a delectable array of dishes

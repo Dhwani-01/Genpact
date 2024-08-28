@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  /* Dashboard Container */
+  .dashboard-container {
+    display: flex;
+  }
+  
+  /* Sidebar Styles */
+  .dashboard-sidebar {
+    width: 20%;
+    min-height: 100vh;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  .dashboard-sidebar-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #00796b;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dashboard-sidebar-button:hover {
+    background-color: #004d40;
+  }
+  
+  /* Main Content Styles */
+  .dashboard-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .dashboard-content h1 {
+    color: #00796b;
+  }
+  
+  .dashboard-content p {
+    color: #333;
+  }
+  
+  .dashboard-content img {
+    max-width: 200px;
+    height: 200px;
+    display: inline;
+    margin: 20px;
+  }
+  
+  .dashboard-add-food-button {
+    background-color: #00796b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dashboard-add-food-button:hover {
+    background-color: #004d40;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 900px) {
+    .dashboard-sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+      position: static;
+    }
+  }
+  

@@ -1,0 +1,42 @@
+.step-3 {
+  padding: 20px;
+}
+
+.step-3 input,
+.step-3 textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.step-3 .delivery-section {
+  margin-bottom: 20px;
+}
+
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.image-upload input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.image-preview {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.navigation-buttons {
+  margin-top: 20px;
+}
+
+.navigation-buttons button {
+  margin-right: 10px;
+}

@@ -1,0 +1,54 @@
+.order-user-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 500px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .order-table thead {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .order-table th, .order-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .order-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .order-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .order-table th {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .order-table td {
+    text-align: center;
+  }
+  

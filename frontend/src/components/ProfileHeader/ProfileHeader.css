@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Container to handle layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  height: 150px; /* Adjust height for the horizontal strip */
+  background-image: url('F:\Genpact\frontend\src\assets\profile_background.webp'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Shadow for depth */
+}
+
+.header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+}
+
+.header button {
+  border: none;
+  background-color: #ffffff;
+  color: #00796b;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 2px solid #00796b;
+  cursor: pointer;
+  position: absolute;
+  right: 210px;
+  bottom: 530px;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.header button:hover {
+  background-color: #00796b;
+  color: #ffffff;
+  border-color: #005b4f;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 18%;
+  min-height: calc(100vh - 150px); /* Adjust height to fit below header */
+  border-left: 1.5px solid #a9a9a9;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  position:absolute;
+  top: 225px; /* Align below header */
+  left: 100;
+  padding-top: 20px;
+}
+
+.welcome-message p {
+  font-size: 1.5rem;
+  color: #00796b;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.sidebar-options {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  text-decoration: none;
+  color: #333;
+}
+
+.sidebar-option:hover,
+.sidebar-option.active {
+  background-color: #e0f7fa;
+  border-color: #00796b;
+}
+
+.sidebar-option p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .sidebar {
+      width: 25%;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+      padding: 0 10px;
+  }
+  .sidebar {
+      width: 100%;
+      height: auto;
+      border-left: none;
+      border-bottom: 1.5px solid #a9a9a9;
+      position: fixed;
+  }
+}

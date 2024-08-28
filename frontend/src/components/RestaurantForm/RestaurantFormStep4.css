@@ -1,0 +1,11 @@
+.step-4 .image-preview-container,
+.step-4 .images-preview-container {
+  margin: 20px 0;
+}
+
+.step-4 .image-preview {
+  max-width: 200px;
+  max-height: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

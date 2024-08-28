@@ -1,0 +1,108 @@
+/* src/components/ViewRestaurant/ViewRestaurant.css */
+
+.view-restaurant-dashboard {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    position: relative;
+    left: 150px;
+}
+
+.view-restaurant-dashboard h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.view-restaurant-dashboard p {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.view-restaurant-dashboard img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.restaurant-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.restaurant-logo {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.restaurant-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+.restaurant-info p {
+    margin: 10px 0;
+}
+
+.restaurant-delivery-areas {
+    margin-top: 20px;
+}
+
+.restaurant-delivery-areas h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.restaurant-delivery-areas ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.restaurant-delivery-areas li {
+    font-size: 1.1rem;
+    color: #34495e;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.restaurant-details {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.details-section h2 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.details-section p {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin: 8px 0;
+    line-height: 1.6;
+}
