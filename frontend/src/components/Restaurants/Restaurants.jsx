@@ -129,6 +129,7 @@ const Restaurants = () => {
     const [restaurants, setRestaurants] = useState([]);
     const [error, setError] = useState(null);
     const { url, token } = useContext(StoreContext);
+    const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
         const fetchRestaurants = async () => {
@@ -150,14 +151,27 @@ const Restaurants = () => {
 
     const imageUrl = (filename) => `${url}/api/restaurant/uploads_restaurant/${filename}`;
 
+    const filteredItems = restaurants.filter((item) => {
+        return item.name && item.name.toLowerCase().includes(searchQuery.toLowerCase());
+      });
+
     if (error) return <div className="error-message">{error}</div>;
     if (restaurants.length === 0) return <div className="loading-message">Loading...</div>;
 
     return (
         <div className="restaurants-container">
             <h1>All Restaurants</h1>
+            {/* Search Bar */}
+            <input
+                type="text"
+                className="restaurant-search-bar"
+                placeholder="Search restaurant..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
             <div className="restaurants-grid">
-                {restaurants.map((restaurant) => (
+            {filteredItems.length > 0 ? (
+                    filteredItems.map((restaurant) => (
                     <div key={restaurant._id} className="restaurant-card"> {/* Use a unique identifier as the key */}
                         <Link to={`/restaurant/${restaurant._id}`} className="restaurant-link">
                             <div className="card-header">
@@ -182,7 +196,10 @@ const Restaurants = () => {
                             </div>
                         </Link>
                     </div>
-                ))}
+                ))
+            ) : (
+                <p>No restaurants found</p>
+            )}
             </div>
         </div>
     );

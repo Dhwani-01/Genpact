@@ -473,6 +473,7 @@ const RestaurantForm = () => {
         }
       });
       console.log('Restaurant created:', response.data);
+      alert('Restaurants submitted successfully!');
       // Handle successful submission
     } catch (error) {
       console.error('Error creating restaurant:', error.response ? error.response.data : error.message);
